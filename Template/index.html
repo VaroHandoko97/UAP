@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Styling -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #ecf0f1;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: bold;
+            background-color: #f0f0f0;
+            padding: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #000000;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0d2636;
+        }
+
+        hr {
+            border: 1px solid #bdc3c7;
+            margin: 20px 0;
+        }
+
+        h3 {
+            color: #000000;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-info {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-label {
+            color: #000000;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .result-value {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .dataset-predictions {
+            margin-top: 20px;
+        }
+
+        .dataset-predictions h3 {
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        #result-table {
+            margin-top: 10px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #result-table, th, td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #000000;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .result-section {
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Salary Prediction</h1>
+        </header>
+
+        <section class="prediction-form">
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="data_file">Select CSV File</label>
+                    <input type="file" id="data_file" name="data_file" required>
+                </div>
+                <button type="submit">Predict</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section class="result-section">
+            <div id="result">
+                <h2>Results</h2>
+
+                <div class="result-info">
+                    <div class="result-item">
+                        <h3 class="result-label">Waktu dalam prediksi:</h3>
+                        <p class="result-value">{{ time_text }}</p>
+                    </div>
+                    <div class="result-item">
+                        <h3 class="result-label">Nilai Akurasi:</h3>
+                        <p class="result-value">{{ accuracy_text }}</p>
+                    </div>
+                </div>
+
+                <div class="dataset-predictions">
+                    <h3>Prediksi Data</h3>
+                    <div id="result-table">
+                        {{ df_table | safe }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>
