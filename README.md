@@ -2,12 +2,6 @@
 
 Proyek UAP ini mengimplementasikan model prediksi gaji menggunakan algoritma machine learning TabNet dan mengaksesnya melalui aplikasi web Flask. User dapat mengunggah file CSV mengenai data gaji pada perusahaan, dan sistem akan memprediksi apakah ada gaji yang lebih dari $50K.
 
-## Menampilkan Deploy Lokal
-
-Berikut adalah tampilan dari aplikasi yang dijalankan secara lokal:
-
-!Prediction(image/Image.jpeg)
-
 ### Requirements
 
 Pastikan Anda telah menginstal prasyarat berikut:
