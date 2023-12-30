@@ -6,7 +6,7 @@ Proyek UAP ini mengimplementasikan model prediksi gaji menggunakan algoritma mac
 
 Berikut adalah tampilan dari aplikasi yang dijalankan secara lokal:
 
-(image/Image.jpeg)
+!Prediction(image/Image.jpeg)
 
 ### Requirements
 
